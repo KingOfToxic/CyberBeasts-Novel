@@ -1,28 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 38, in script
-    scene  hospital_fade with disolve
-  File "game/script.rpy", line 38, in <module>
-    scene  hospital_fade with disolve
+  File "game/script.rpy", line 199, in script
+    show quest with disolve
+  File "game/script.rpy", line 199, in <module>
+    show quest with disolve
 NameError: name 'disolve' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 38, in script
-    scene  hospital_fade with disolve
+  File "game/script.rpy", line 199, in script
+    show quest with disolve
   File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\ast.py", line 1674, in execute
     paired = renpy.python.py_eval(self.paired)
   File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\python.py", line 1153, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\python.py", line 1146, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 38, in <module>
-    scene  hospital_fade with disolve
+  File "game/script.rpy", line 199, in <module>
+    show quest with disolve
 NameError: name 'disolve' is not defined
 
 Windows-10-10.0.22000 AMD64
 Ren'Py 8.1.3.23091805
 Код из Космоса alpha beta 0.001
-Mon Nov  6 17:28:42 2023
+Sun Nov 12 19:15:45 2023
