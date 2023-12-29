@@ -347,34 +347,26 @@ style navigation_button_text:
 ## Используется, чтобы показать главное меню после запуска игры.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
-
+init python:
+    renpy.music.register_channel('test_one', 'sfx', False)
+    renpy.music.register_channel('test_two', 'sfx', False)
 screen main_menu():
 
     ## Этот тег гарантирует, что любой другой экран с тем же тегом будет
     ## заменять этот.
     tag menu
 
-    add gui.main_menu_background
+    imagemap:
+        ground 'gui/main_menu.png'
+        idle 'gui/menu_normal.png'
+        hover 'gui/menu_hover.png'
 
-    ## Эта пустая рамка затеняет главное меню.
-    frame:
-        style "main_menu_frame"
-
-    ## Оператор use включает отображение другого экрана в данном. Актуальное
-    ## содержание главного меню находится на экране навигации.
-    use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
-
+        hotspot(69, 450, 345, 80) action [Play('test_one', 'click1.mp3'), Start()] hovered Play('test_two', 'click.mp3')
+        hotspot(69, 553, 432, 80) action [Play('test_one', 'click1.mp3'), ShowMenu('load')] hovered Play('test_two', 'click.mp3')
+        hotspot(69, 652, 452, 80) action [Play('test_one', 'click1.mp3'), ShowMenu('preferences')] hovered Play('test_two', 'click.mp3')
+        hotspot(69, 752, 314, 80) action [Play('test_one', 'click1.mp3'), ShowMenu('about')] hovered Play('test_two', 'click.mp3')
+        hotspot(69, 852, 314, 80) action [Play('test_one', 'click1.mp3'), ShowMenu('help')] hovered Play('test_two', 'click.mp3')
+        hotspot(69, 952, 275, 80) action [Play('test_one', 'click1.mp3'), Quit(confirm=True)] hovered Play('test_two', 'click.mp3')
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
