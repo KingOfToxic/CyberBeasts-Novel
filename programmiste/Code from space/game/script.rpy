@@ -26,70 +26,6 @@ define lastPosl = 1
 define dissolve = Dissolve(0.5)
 define fastdissolve = Dissolve(0.25)
 
-
-'''init python:
-    code_entered = ""
-    open_count = 0
-    correct_code = "1120"
-    renpy.music.register_channel('test_three', 'sfx', False)
-    numbl = 0
-    numbc = 0
-    numbr = 0
-
-label safe:
-    "Какую комбинацию мне ввести?"
-    show code_display
-    show screen keypad
-    
-
-    screen keypad():
-
-        tag menu
-
-        imagemap:
-            ground 'images/safe/safe_panel.png'
-            idle  'images/safe/safe_panel.png'
-            hover 'images/safe/safe_panel1_.png'
-
-            hotspot(750, 420, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "1")]
-            hotspot(810, 420, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "2")]
-            hotspot(872, 420, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "3")]
-            hotspot(750, 484, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "4")]
-            hotspot(810, 484, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "5")]
-            hotspot(872, 484, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "6")]
-            hotspot(750, 542, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "7")]
-            hotspot(810, 542, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "8")]
-            hotspot(872, 542, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "9")]
-            hotspot(750, 603, 56, 53) action [Play('test_three', 'safe.mp3'), SetVariable("code_entered", code_entered + "0")]
-            hotspot(810, 603, 114, 53) action [Play('test_three', 'safe.mp3'), Call("check_code")]
-
-    screen code_display:
-
-        text "[code_entered]" xpos 1000 ypos 500 size 30 color "white"
-
-    label check_code:
-            if code_entered == correct_code:
-                jump open_safe
-            else:
-                $ open_count += 1
-                jump wrong_code
-                
-        if open_count == 3:
-            jump start12
-
-
-label open_safe:
-    # play sound "safe_open_sound.ogg"  
-    euklid 'О, получилось!'
-    hide safe
-    jump start13
-
-label wrong_code:
-    #play sound "wrong_code_sound.ogg"  # Воспроизведение звука неверного кода
-    'Ой попробую ещё раз'
-    jump safe'''
-'''hotspot(1050, 447, 79, 45) action If(numbll == 1, If(numbl == 1, If(numbc == 2, If(numbr == 0, Hide("safe_code"), call (access_denied)), call (access_denied)), call (access_denied)), call (access_denied))'''
-
 init python:
     renpy.music.register_channel('test_three', 'sfx', False)
     numbll = 0
@@ -160,7 +96,7 @@ label start:
     scene hospital_fade2 with dissolve
     scene hospital_1st_scene with dissolve
 
-    sanya 'Яркий, ослепляющий свет освещал всю комнату, вокруг меня стояли пустые койки, кажется совсем недавно на них ещё кто-то лежал. Из окна раздавалось ели слышимое щебетание птиц.'
+    sanya 'Яркий, ослепляющий свет освещал всю комнату, вокруг меня стояли пустые койки, кажется совсем недавно на них ещё кто-то лежал. Из окна раздавалось еле слышимое щебетание птиц.'
 
     sanya 'Наконец-то тишина... Как же я долго этого ждал.'
 
@@ -170,7 +106,7 @@ label start:
 
     'Она медленно идет прямо к моей койке, смотря себе под ноги и напевая какую-то незамысловатую мелодию.'
 
-    show alla 1 with easeinright
+    show alla 1_ with easeinright
 
     sanya 'Эм, здравствуй...Ты совсем не изменилась, Алла, опять витаешь в облаках.'
 
@@ -178,7 +114,7 @@ label start:
 
     'Блондинка на секунду замирает на месте, направляет свой взор на меня и громко, что есть мочи начинает кричать.'
 
-    show alla sad 0 with dissolve
+    show alla sad 0_1 with dissolve
     
     alla 'САША, ТЫ НАКОНЕЦ-ТО ОЧНУЛСЯ!'
 
@@ -188,13 +124,13 @@ label start:
 
     'Девушка, всхлипывая продолжила говорить.'
 
-    show alla sad with dissolve
+    show alla sad_1 with dissolve
 
     alla 'Ты не представляешь, как я за тебя волновалась, как все волновались. Мы начали думать, что ты не очнёшься, а твой младший брат уже занял комнату, в которой ты жил. Как же хорошо, что ты очнулся!'
   
-    sanya 'Пожалуйста, можешь успокоится, у меня до сих пор болит голова.'
+    sanya 'Пожалуйста, можешь успокоиться, у меня до сих пор болит голова.'
 
-    show alla smile1 with dissolve
+    show alla sad smile1_1 with dissolve
 
     alla 'Ах, конечно, прости меня. Что я могу для тебя сделать?'
 
@@ -202,7 +138,7 @@ label start:
 
     alla 'Ой, точно, надо было это сделать с самого начала. Я сейчас вернусь, никуда не уходи.'
 
-    hide alla smile1 with moveoutright
+    hide alla sad smile1_1 with moveoutright
 
     play sound door_close
 
@@ -262,7 +198,7 @@ label start:
 
         'Вдруг, огромный, мимо проходящий, мужчина остановился около меня.'
         
-        npc 'Эй, сопляк, тебя не учили, что брать чужое нельзя? А ну, быстро снял мои любимые тапочки!'
+        npc 'Эй, сопляк, тебя не учили, что брать чужое нельзя? А ну быстро снял мои любимые тапочки!'
 
         sanya 'Меня переполнила злоба. Как он смеет так со мной обращаться. Но понимая, что против такого бугая у меня мало шансов, я послушно выполнил его просьбу.'
 
@@ -400,7 +336,7 @@ label start3:
 
     scene street with dissolve
 
-    show alla 1 with dissolve
+    show alla 1_ with dissolve
 
     '...'
 
@@ -548,12 +484,6 @@ label start3:
 label start4:
 
     sanya 'Странно, обычно животные спокойно ко мне относятся, а этот...Видимо бешеный.'
-
-    show alla happy with dissolve
-
-    alla 'Не расстраивайся, ты хотя бы попытался помочь.'
-
-    hide alla happy with fastdissolve
 
     show semen sus with dissolve
 
@@ -705,7 +635,7 @@ label start5:
 
     scene irit with dissolve 
 
-    show alla sad with dissolve
+    show alla sad_1 with dissolve
 
     'Я быстро сориентировался где я нахожусь, повезло, что воспоминания бывшего владельца тела не исчезли вместе с его душой.'
 
@@ -717,11 +647,11 @@ label start5:
 
     alla 'Ты был прав, не стоило тебе идти сегодня на пары, прости меня.'
 
-    hide alla sad with fastdissolve
+    hide alla sad_1 with fastdissolve
 
     show semen n with dissolve
 
-    semen 'Ё-маё, ты так эпично шлёпнулся о землю, жаль не получилось на заснять это на память.'
+    semen 'Ё-маё, ты так эпично шлёпнулся о землю, жаль не получилось заснять это на память.'
 
     hide semen n with fastdissolve
 
@@ -729,7 +659,7 @@ label start5:
 
     alla 'Семён, думай о чём говоришь, иначе шлёпнешься уже ты.'
 
-    euklid 'Да ничего страшного, не злись на него. И в правду глупо получилось, я просто не удержал равновесие и упал на ровном месте, видимо головушкой стукнулся и отключился.'
+    euklid 'Да ничего страшного, не злись на него. И вправду глупо получилось, я просто не удержал равновесие и упал на ровном месте, видимо головушкой стукнулся и отключился.'
 
     show alla amazed with dissolve
 
@@ -795,7 +725,7 @@ label start5:
 
     'Чувствуя, что обстановка накаляется до предела, я обернулся лицом к недовольному парню и посмотрел прямо в глаза.'
 
-    euklid 'Забудь всё то, что сейчас было и займись своими делами'
+    euklid 'Забудь всё то, что сейчас было и займись своими делами.'
 
     'Он на секунду закрыл глаза, а потом как ни в чем не бывало стал что-то писать в своей тетради.'
 
@@ -925,15 +855,15 @@ label start5:
 
     alla_s smile 'Хм, а что, звучит хорошо, после такого точно нужно подышать свежим воздухом... Саша, ты как?'
 
-    'Сегодня я итак вёл себя подозрительно, как раз то, что мне нужно, потрусь с этими людишками, а потом приступлю к своим делам'
+    'Сегодня я и так вёл себя подозрительно, как раз то, что мне нужно, потрусь с этими людишками, а потом приступлю к своим делам.'
 
     euklid 'Да, конечно, почему бы и нет.'
 
     semen_s smile 'Крутяк! Тогда будем ждать тебя на выходе у института!'
 
-    show teach sad with dissolve
-
     'Спустя несколько минут вернулся преподаватель.'
+
+    show teach sad with dissolve
 
     show teach smile 2 with fastdissolve
 
@@ -956,7 +886,8 @@ label start5:
     'Я, Семён, Алла и несколько других студентов решили остаться в ожидании сюрприза.'
 
     alla_s smile 'Как думаете, что за сюрприз? Может автомат по предмету?'
-
+    scene aud empty 
+    show teach sad
     semen_s smile 'Да вряд ли, думаю просто пару баллов в ведомость.'
 
     show teach smile 2 with fastdissolve
@@ -966,17 +897,20 @@ label start5:
     show teach sad with fastdissolve
 
     teacher 'Прошу вас подойти и взять по листку.'
-
-    'Все подошли и, взяв по листку, разошлись.'
-
+    
     scene aud empty list with dissolve
     show teach sad with fastdissolve
 
+    'Все подошли и, взяв по листку, разошлись.'
+
     semen_s podoz 'Блин, дед опять всех одурачил.'
+
+    scene aud empty list_
+    show teach sad
 
     alla_s angry 'В какой раз мы на это попадаемся, сегодня надо было уходить со всеми.'
 
-    show teach smile 2 with fastdissolve
+    show teach smile 2
 
     teacher 'Как вы могли уже заметить, это небольшой тест по терминам, которые мы сегодня проходили.'
 
@@ -1072,7 +1006,7 @@ label start7:
 
     scene irit with fade
 
-    show alla 1 with dissolve
+    show alla 1_ with dissolve
 
     alla 'Что ты там так долго делал?'
 
@@ -1093,7 +1027,7 @@ label start7:
 
     show semen smile with dissolve
 
-    'Впрочем, хватит болтать, пойдёмте скорее есть, ё-моё.'
+    semen 'Впрочем, хватит болтать, пойдёмте скорее есть, ё-маё.'
 
     scene black_background with fade
 
@@ -1212,7 +1146,7 @@ label order:
     semen 'Теперь будем ходить сюда каждый день после пар.'
 
     hide semen smile with fastdissolve
-    show alla 1 with dissolve
+    show alla 1_ with dissolve
 
     alla 'Ну как-нибудь без меня… Саша, с тобой всё хорошо? Ты какой-то бледный.'
 
@@ -1224,7 +1158,7 @@ label order:
 
     'Внезапно я ощутил острую боль в районе живота, я не смог стоять на ногах и упал на землю.'
 
-    show alla sad 0 with dissolve
+    show alla sad 0_1 with dissolve
 
     alla 'САШААААА, НЕТ.'
 
@@ -1242,7 +1176,7 @@ label order_refuse:
 
     euklid 'Алла права, не хочу снова оказаться в больнице.'
 
-    semen_s smile 'Ну смотрите, если будете просить меня сделать кусочек, я вам откажу.'
+    semen_s smile 'Ну смотрите, если будете просить меня кусочек, я вам откажу.'
  
     'Прошло пару минут, Семёну принесли его долгожданное блюдо.'
 
@@ -1415,7 +1349,6 @@ label start8:
         $ bit +=1
         jump start8
 
-
 label start81:
 
     scene trans_ with dissolve
@@ -1462,7 +1395,7 @@ label start81:
 
     $ phrase = renpy.input('Расшифруйте следующий текст и запишите ответ на русском через пробел маленькими буквами: ', length = 28).strip()
 
-    if phrase == 'Информационная безопасность' or phrase == 'Информационнаябезопасность' or phrase == 'Информационная безопасность' or phrase == 'Информационная_безопастность' or phrase == 'Информационная Безопасность' or phrase == 'ИнформационнаяБезопасность' or phrase == 'Информационная_Безопастность' or phrase == 'ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ' or phrase == 'ИНФОРМАЦИОННАЯБЕЗОПАСНОСТЬ' or phrase == 'ИНФОРМАЦИОННАЯ_БЕЗОПАСНОСТЬ':
+    if phrase == 'Информационная безопасность' or phrase == 'Информационнаябезопасность' or phrase == 'Информационная безопасность' or phrase == 'Информационная_безопастность' or phrase == 'информационная Безопасность' or phrase == 'ИнформационнаяБезопасность' or phrase == 'Информационная_Безопастность' or phrase == 'ИНФОРМАЦИОННАЯ БЕЗОПАСНОСТЬ' or phrase == 'ИНФОРМАЦИОННАЯБЕЗОПАСНОСТЬ' or phrase == 'ИНФОРМАЦИОННАЯ_БЕЗОПАСНОСТЬ':
 
         euklid 'Да уж, это заняло чуть больше времени чем я ожидал.'
 
@@ -1512,7 +1445,7 @@ label start9:
 
     sec 'Слушаю вас.'
 
-    euklid 'Это Евклид, хочу доложить, что миссия на планете Земля протекает гладко, но я ещё не определили местонахождение волшебного камня.'
+    euklid 'Это Евклид, хочу доложить, что миссия на планете Земля протекает гладко, но я ещё не определил местонахождение волшебного камня.'
 
     play sound alienb
 
@@ -1579,7 +1512,7 @@ label truth:
 
     semen 'Не рассказывай мне сказки.'
 
-    euklid 'Нет, я правда не планирую ничего плохого, проверь мне...'
+    euklid 'Нет, я правда не планирую ничего плохого, поверь мне...'
 
     show semen sus with dissolve
 
@@ -1801,7 +1734,7 @@ label commode_:
 
 label closet:
 
-    'Порывшись в шкафу, я нашел тяжелай металлический сейф.'
+    'Порывшись в шкафу, я нашел тяжёлый металлический сейф.'
 
     show screen safe_code with dissolve
 
@@ -1848,7 +1781,11 @@ label start13:
 
     'Я открыл глаза...'
 
+    window hide
+
     scene jail teacher sad with Dissolve(2)
+
+    window show
 
     'Передо мной была решётка, за ней у большого стола стоял тот, кто ударил меня по затылку.'
 
@@ -1864,7 +1801,7 @@ label start13:
 
     euklid 'Мирно отдадите волшебный камень?'
 
-    scene jail teacher sad with dissolve
+    scene jail teacher sad with fastdissolve
 
     teacher 'Хо-хо-хо, а ты забавный. Язык тебе отрежу в самую последнюю очередь.'
 
@@ -1952,7 +1889,7 @@ label delta_lie:
 
     alla_s angry 'Да что вы творите, я сейчас позвоню в полицию!'
 
-    teacher_s 'Пока полиция доедет, я успею расправится с вами двумя.'
+    teacher_s 'Пока полиция доедет, я успею расправиться с вами двумя.'
 
     scene black_background with fade
     play sound key
@@ -2114,7 +2051,7 @@ label start19:
 
     show alla happy_ with dissolve
 
-    alla 'Ну не хотел бы ты остаться тут? Сейчас ты лучший студент, впереди тебя ждёт хорошее будущее.'
+    alla 'Ну не хотел бы ты остаться тут? Ты хороший студент, тебя ждёт перспективное будущее.'
 
     euklid 'Но у меня на Земле никого нет.'
 

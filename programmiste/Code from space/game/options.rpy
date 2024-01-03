@@ -209,3 +209,5 @@ init python:
 ## разделённые дробью.
 
 # define build.itch_project = "renpytom/test-project"
+
+define config.default_fullscreen = True

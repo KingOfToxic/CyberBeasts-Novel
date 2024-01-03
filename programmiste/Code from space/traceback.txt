@@ -1,30 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1871, in script
-    scene jail teacher with fastdissolve
-Exception: Image 'jail' does not accept attributes 'teacher'.
+  File "game/script.rpy", line 903, in script
+    scene aud empty list_ with dissolve
+Exception: Image 'aud empty' does not accept attributes 'list_'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1871, in script
-    scene jail teacher with fastdissolve
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\ast.py", line 1562, in execute
+  File "game/script.rpy", line 903, in script
+    scene aud empty list_ with dissolve
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\ast.py", line 1562, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\ast.py", line 1391, in show_imspec
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\ast.py", line 1391, in show_imspec
     renpy.config.show(name,
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\exports.py", line 733, in show
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\exports.py", line 733, in show
     if not base.find_target() and renpy.config.missing_show:
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\display\image.py", line 421, in find_target
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\display\image.py", line 421, in find_target
     self.target = target._duplicate(a)
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\display\core.py", line 499, in _duplicate
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\display\core.py", line 499, in _duplicate
     args.extraneous()
-  File "C:\Users\Evgen\OneDrive\Desktop\ren.py\renpy\display\core.py", line 362, in extraneous
+  File "C:\Users\Evgen\Desktop\ren.py\renpy\display\core.py", line 362, in extraneous
     raise Exception("Image '{}' does not accept attributes '{}'.".format(
-Exception: Image 'jail' does not accept attributes 'teacher'.
+Exception: Image 'aud empty' does not accept attributes 'list_'.
 
-Windows-10-10.0.22000 AMD64
+Windows-10-10.0.19045 AMD64
 Ren'Py 8.1.3.23091805
 Код из Космоса 1.0
-Thu Dec 28 22:34:37 2023
+Sun Dec 31 01:10:24 2023
